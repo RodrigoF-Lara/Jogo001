@@ -17,6 +17,10 @@ class SoundManager {
         if (!this.audioContext) {
             this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
         }
+        // Resume o AudioContext se estiver suspenso (necessário no mobile)
+        if (this.audioContext.state === 'suspended') {
+            this.audioContext.resume();
+        }
     }
 
     loadAudioFiles() {
@@ -705,15 +709,33 @@ soundToggle.addEventListener('click', () => {
 
 // Loop do jogo
 let game = new Game();
+let gameStarted = false;
+
+// Tela de Início
+const startScreen = document.getElementById('startScreen');
+const startButton = document.getElementById('startButton');
+
+startButton.addEventListener('click', () => {
+    // Ativa o AudioContext
+    soundManager.initAudioContext();
+    
+    // Remove tela de início
+    startScreen.classList.add('hidden');
+    
+    // Inicia o jogo
+    gameStarted = true;
+});
 
 function gameLoop() {
-    game.update();
-    game.draw();
+    if (gameStarted) {
+        game.update();
+        game.draw();
 
-    // Atualiza UI
-    document.getElementById('score').textContent = `Quilometragem: ${game.getScore().toFixed(1)} km`;
-    document.getElementById('levelDisplay').textContent = `Fase: ${game.level}`;
-
+        // Atualiza UI
+        document.getElementById('score').textContent = `Quilometragem: ${game.getScore().toFixed(1)} km`;
+        document.getElementById('levelDisplay').textContent = `Fase: ${game.level}`;
+    }
+    
     requestAnimationFrame(gameLoop);
 }
 
