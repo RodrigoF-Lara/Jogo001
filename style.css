@@ -185,6 +185,8 @@ canvas {
     text-align: center;
     color: white;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
 .gameOverContent h1 {
@@ -260,7 +262,7 @@ canvas {
 }
 
 .mobile-controls.hidden {
-    display: none;
+    display: none !important;
 }
 
 .control-group {
@@ -272,7 +274,7 @@ canvas {
     padding: 20px;
     pointer-events: auto;
     position: absolute;
-    bottom: 20px;
+    bottom: 0;
 }
 
 .control-group.left {
@@ -329,5 +331,28 @@ canvas {
     
     .mobile-controls {
         display: flex !important;
+    }
+
+    .gameOverContent {
+        padding: 20px;
+    }
+
+    .gameOverContent h1 {
+        font-size: 28px;
+    }
+
+    .gameOverContent p {
+        font-size: 16px;
+        margin-bottom: 16px;
+    }
+
+    .gameOverContent a {
+        font-size: 16px;
+        padding: 8px 14px;
+    }
+
+    .gameOverContent button {
+        font-size: 16px;
+        padding: 12px 20px;
     }
 }

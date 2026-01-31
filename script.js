@@ -146,7 +146,7 @@ class Car {
         this.width = 40;
         this.height = 60;
         this.x = canvas.width / 2 - this.width / 2;
-        this.y = canvas.height / 2 - this.height / 2; // Posicionado no meio vertical da tela
+        this.y = canvas.height - 120; // Posicionado mais para trás na tela
         this.velocity = 0; // Velocidade do carro (pixel/frame)
         this.maxVelocity = 12; // Velocidade máxima
         this.minVelocity = 2; // Velocidade mínima
@@ -599,7 +599,7 @@ class Game {
         const gameOverScreen = document.getElementById('gameOverScreen');
         gameOverScreen.innerHTML = `
             <div class="gameOverContent">
-                <img src="img/bike caiu.jpg" alt="Bike Caiu" class="game-over-image">
+                <img src="img/bike caiu.webp" alt="Bike Caiu" class="game-over-image">
                 <h1>Sua Bicicleta Quebrou! Passe na GuPedal para consertar!</h1>
                 <p id="finalScore">Quilometragem Final: ${Math.floor(this.score / 10)} km que perigo....</p>
                 <p><a href="https://www.instagram.com/gupedalbikes?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">Visite nosso Instagram</a></p>
