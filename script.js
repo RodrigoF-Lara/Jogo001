@@ -142,7 +142,7 @@ class Car {
         this.width = 40;
         this.height = 60;
         this.x = canvas.width / 2 - this.width / 2;
-        this.y = canvas.height - 100;
+        this.y = canvas.height / 2 - this.height / 2; // Posicionado no meio vertical da tela
         this.velocity = 0; // Velocidade do carro (pixel/frame)
         this.maxVelocity = 12; // Velocidade máxima
         this.minVelocity = 2; // Velocidade mínima
@@ -734,11 +734,13 @@ if (isMobile) {
     
     btnLeft.addEventListener('touchstart', (e) => {
         e.preventDefault();
+        soundManager.initAudioContext(); // Garante que o AudioContext está ativo
         game.car.moveLeft();
     });
     
     btnRight.addEventListener('touchstart', (e) => {
         e.preventDefault();
+        soundManager.initAudioContext(); // Garante que o AudioContext está ativo
         game.car.moveRight();
     });
     
@@ -748,6 +750,7 @@ if (isMobile) {
     
     btnUp.addEventListener('touchstart', (e) => {
         e.preventDefault();
+        soundManager.initAudioContext(); // Garante que o AudioContext está ativo
         if (!accelerateInterval) {
             game.car.accelerate();
             accelerateInterval = setInterval(() => game.car.accelerate(), 100);
@@ -762,6 +765,7 @@ if (isMobile) {
     
     btnDown.addEventListener('touchstart', (e) => {
         e.preventDefault();
+        soundManager.initAudioContext(); // Garante que o AudioContext está ativo
         if (!decelerateInterval) {
             game.car.decelerate();
             decelerateInterval = setInterval(() => game.car.decelerate(), 100);
