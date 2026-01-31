@@ -19,6 +19,36 @@ canvas {
     display: block;
 }
 
+/* GIF animado bike oi */
+.bike-oi-gif {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 150px;
+    height: auto;
+    z-index: 5;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@media (max-width: 768px) {
+    .bike-oi-gif {
+        width: 80px;
+        bottom: 100px;
+        right: 10px;
+    }
+}
+
 #ui {
     position: absolute;
     top: 20px;
