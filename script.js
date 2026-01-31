@@ -676,3 +676,59 @@ function gameLoop() {
 }
 
 gameLoop();
+
+// Detectar se é mobile e ativar controles virtuais
+const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+if (isMobile) {
+    const mobileControls = document.getElementById('mobileControls');
+    mobileControls.classList.remove('hidden');
+    
+    // Botões de movimento
+    const btnLeft = document.getElementById('btnLeft');
+    const btnRight = document.getElementById('btnRight');
+    const btnUp = document.getElementById('btnUp');
+    const btnDown = document.getElementById('btnDown');
+    
+    btnLeft.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        game.car.moveLeft();
+    });
+    
+    btnRight.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        game.car.moveRight();
+    });
+    
+    // Botões de velocidade - mantém pressionado para acelerar/desacelerar
+    let accelerateInterval = null;
+    let decelerateInterval = null;
+    
+    btnUp.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        if (!accelerateInterval) {
+            game.car.accelerate();
+            accelerateInterval = setInterval(() => game.car.accelerate(), 100);
+        }
+    });
+    
+    btnUp.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        clearInterval(accelerateInterval);
+        accelerateInterval = null;
+    });
+    
+    btnDown.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        if (!decelerateInterval) {
+            game.car.decelerate();
+            decelerateInterval = setInterval(() => game.car.decelerate(), 100);
+        }
+    });
+    
+    btnDown.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        clearInterval(decelerateInterval);
+        decelerateInterval = null;
+    });
+}

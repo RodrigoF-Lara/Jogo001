@@ -129,6 +129,55 @@ canvas {
     transform: scale(1.05);
 }
 
+/* Controles Virtuais Mobile */
+.mobile-controls {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 30px;
+    z-index: 50;
+}
+
+.mobile-controls.hidden {
+    display: none;
+}
+
+.control-group {
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+}
+
+.control-group:nth-child(2) {
+    flex-direction: column;
+}
+
+.control-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    border: 2px solid #00ff00;
+    background: rgba(0, 255, 0, 0.2);
+    color: #00ff00;
+    font-size: 24px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.1s;
+    user-select: none;
+    touch-action: manipulation;
+}
+
+.control-btn:active {
+    background: rgba(0, 255, 0, 0.5);
+    transform: scale(0.95);
+}
+
+.control-btn:hover {
+    background: rgba(0, 255, 0, 0.3);
+}
+
 @media (max-width: 768px) {
     #score {
         font-size: 14px;
@@ -138,5 +187,9 @@ canvas {
     canvas {
         max-width: 100vw;
         max-height: 100vh;
+    }
+    
+    .mobile-controls {
+        display: flex !important;
     }
 }
