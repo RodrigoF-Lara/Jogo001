@@ -599,6 +599,7 @@ class Game {
         const gameOverScreen = document.getElementById('gameOverScreen');
         gameOverScreen.innerHTML = `
             <div class="gameOverContent">
+                <img src="img/bike caiu.jpg" alt="Bike Caiu" class="game-over-image">
                 <h1>Sua Bicicleta Quebrou! Passe na GuPedal para consertar!</h1>
                 <p id="finalScore">Quilometragem Final: ${Math.floor(this.score / 10)} km que perigo....</p>
                 <p><a href="https://www.instagram.com/gupedalbikes?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">Visite nosso Instagram</a></p>

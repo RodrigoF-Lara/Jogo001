@@ -163,6 +163,15 @@ canvas {
     color: #ff6b6b;
 }
 
+.game-over-image {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
 .gameOverContent p {
     font-size: 24px;
     margin-bottom: 30px;
