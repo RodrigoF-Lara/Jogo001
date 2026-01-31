@@ -153,6 +153,14 @@ class Car {
         this.lane = 1; // 0 = esquerda, 1 = meio, 2 = direita
         this.lanePositions = [50, 180, 310];
         this.lastEngineSound = 0;
+        
+        // Carregar imagem da bicicleta
+        this.bikeImage = new Image();
+        this.bikeImage.src = 'img/bike001.avif';
+        this.imageLoaded = false;
+        this.bikeImage.onload = () => {
+            this.imageLoaded = true;
+        };
     }
 
     update() {
@@ -173,62 +181,14 @@ class Car {
     }
 
     draw() {
-        // Corpo da bicicleta - Quadro
-        ctx.strokeStyle = '#000';
-        ctx.lineWidth = 3;
-        // Triângulo principal do quadro
-        ctx.beginPath();
-        ctx.moveTo(this.x + 20, this.y + 10);
-        ctx.lineTo(this.x + 5, this.y + 40);
-        ctx.lineTo(this.x + 35, this.y + 40);
-        ctx.closePath();
-        ctx.stroke();
-        
-        // Tubo de direção
-        ctx.beginPath();
-        ctx.moveTo(this.x + 20, this.y + 10);
-        ctx.lineTo(this.x + 20, this.y + 20);
-        ctx.stroke();
-        
-        // Guidão
-        ctx.strokeStyle = '#333';
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.arc(this.x + 20, this.y + 18, 8, 0, Math.PI * 2);
-        ctx.stroke();
-        
-        // Roda Traseira (grande círculo)
-        ctx.strokeStyle = '#000';
-        ctx.lineWidth = 3;
-        ctx.beginPath();
-        ctx.arc(this.x + 35, this.y + 40, 15, 0, Math.PI * 2);
-        ctx.stroke();
-        
-        // Roda Dianteira (grande círculo)
-        ctx.beginPath();
-        ctx.arc(this.x + 5, this.y + 40, 15, 0, Math.PI * 2);
-        ctx.stroke();
-        
-        // Aro das rodas (interna)
-        ctx.strokeStyle = '#888';
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.arc(this.x + 35, this.y + 40, 12, 0, Math.PI * 2);
-        ctx.stroke();
-        ctx.beginPath();
-        ctx.arc(this.x + 5, this.y + 40, 12, 0, Math.PI * 2);
-        ctx.stroke();
-        
-        // Corrente (cor dourada)
-        ctx.strokeStyle = '#DAA520';
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.arc(this.x + 20, this.y + 35, 6, 0, Math.PI * 2);
-        ctx.stroke();
-        
-        // Assento
-        ctx.fillStyle = '#000';
-        ctx.fillRect(this.x + 15, this.y + 32, 10, 3);
+        if (this.imageLoaded) {
+            // Desenha a imagem da bicicleta
+            ctx.drawImage(this.bikeImage, this.x, this.y, this.width, this.height);
+        } else {
+            // Fallback: desenha um retângulo simples enquanto a imagem carrega
+            ctx.fillStyle = '#ff0000';
+            ctx.fillRect(this.x, this.y, this.width, this.height);
+        }
         
         // Indicador de velocidade
         ctx.fillStyle = '#fff';
