@@ -169,20 +169,62 @@ class Car {
     }
 
     draw() {
-        // Corpo do carro
-        ctx.fillStyle = '#ff0000';
-        ctx.fillRect(this.x, this.y, this.width, this.height);
-
-        // Janela
-        ctx.fillStyle = '#87ceeb';
-        ctx.fillRect(this.x + 5, this.y + 15, this.width - 10, 20);
-
-        // Rodas
+        // Corpo da bicicleta - Quadro
+        ctx.strokeStyle = '#000';
+        ctx.lineWidth = 3;
+        // Triângulo principal do quadro
+        ctx.beginPath();
+        ctx.moveTo(this.x + 20, this.y + 10);
+        ctx.lineTo(this.x + 5, this.y + 40);
+        ctx.lineTo(this.x + 35, this.y + 40);
+        ctx.closePath();
+        ctx.stroke();
+        
+        // Tubo de direção
+        ctx.beginPath();
+        ctx.moveTo(this.x + 20, this.y + 10);
+        ctx.lineTo(this.x + 20, this.y + 20);
+        ctx.stroke();
+        
+        // Guidão
+        ctx.strokeStyle = '#333';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.arc(this.x + 20, this.y + 18, 8, 0, Math.PI * 2);
+        ctx.stroke();
+        
+        // Roda Traseira (grande círculo)
+        ctx.strokeStyle = '#000';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.arc(this.x + 35, this.y + 40, 15, 0, Math.PI * 2);
+        ctx.stroke();
+        
+        // Roda Dianteira (grande círculo)
+        ctx.beginPath();
+        ctx.arc(this.x + 5, this.y + 40, 15, 0, Math.PI * 2);
+        ctx.stroke();
+        
+        // Aro das rodas (interna)
+        ctx.strokeStyle = '#888';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.arc(this.x + 35, this.y + 40, 12, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(this.x + 5, this.y + 40, 12, 0, Math.PI * 2);
+        ctx.stroke();
+        
+        // Corrente (cor dourada)
+        ctx.strokeStyle = '#DAA520';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.arc(this.x + 20, this.y + 35, 6, 0, Math.PI * 2);
+        ctx.stroke();
+        
+        // Assento
         ctx.fillStyle = '#000';
-        ctx.fillRect(this.x + 8, this.y, 8, 10);
-        ctx.fillRect(this.x + this.width - 16, this.y, 8, 10);
-        ctx.fillRect(this.x + 8, this.y + this.height - 10, 8, 10);
-        ctx.fillRect(this.x + this.width - 16, this.y + this.height - 10, 8, 10);
+        ctx.fillRect(this.x + 15, this.y + 32, 10, 3);
         
         // Indicador de velocidade
         ctx.fillStyle = '#fff';

@@ -132,12 +132,17 @@ canvas {
 /* Controles Virtuais Mobile */
 .mobile-controls {
     position: fixed;
-    bottom: 20px;
+    bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 30px;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
     z-index: 50;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    border-radius: 10px;
 }
 
 .mobile-controls.hidden {
@@ -146,7 +151,11 @@ canvas {
 
 .control-group {
     display: flex;
-    gap: 10px;
+    gap: 15px;
+    justify-content: center;
+}
+
+.control-group:nth-child(1) {
     flex-direction: row;
 }
 
@@ -155,27 +164,33 @@ canvas {
 }
 
 .control-btn {
-    width: 50px;
-    height: 50px;
-    border-radius: 10px;
-    border: 2px solid #00ff00;
-    background: rgba(0, 255, 0, 0.2);
+    width: 70px;
+    height: 70px;
+    border-radius: 12px;
+    border: 3px solid #00ff00;
+    background: rgba(0, 255, 0, 0.25);
     color: #00ff00;
-    font-size: 24px;
+    font-size: 32px;
     cursor: pointer;
     font-weight: bold;
-    transition: all 0.1s;
+    transition: all 0.15s;
     user-select: none;
     touch-action: manipulation;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
 }
 
 .control-btn:active {
-    background: rgba(0, 255, 0, 0.5);
-    transform: scale(0.95);
+    background: rgba(0, 255, 0, 0.6);
+    transform: scale(0.92);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.6);
 }
 
 .control-btn:hover {
-    background: rgba(0, 255, 0, 0.3);
+    background: rgba(0, 255, 0, 0.4);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.4);
 }
 
 @media (max-width: 768px) {
