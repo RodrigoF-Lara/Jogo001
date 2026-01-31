@@ -132,17 +132,15 @@ canvas {
 /* Controles Virtuais Mobile */
 .mobile-controls {
     position: fixed;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
+    justify-content: space-between;
+    padding: 0;
     z-index: 50;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 15px;
-    border-radius: 10px;
+    pointer-events: none;
 }
 
 .mobile-controls.hidden {
@@ -151,16 +149,25 @@ canvas {
 
 .control-group {
     display: flex;
-    gap: 15px;
-    justify-content: center;
-}
-
-.control-group:nth-child(1) {
-    flex-direction: row;
-}
-
-.control-group:nth-child(2) {
     flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 20px;
+    pointer-events: auto;
+    position: absolute;
+    bottom: 20px;
+}
+
+.control-group.left {
+    left: 10px;
+    flex-direction: column;
+}
+
+.control-group.right {
+    right: 10px;
+    flex-direction: row;
+    gap: 20px;
 }
 
 .control-btn {
