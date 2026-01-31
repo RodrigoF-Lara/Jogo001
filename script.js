@@ -607,6 +607,12 @@ class Game {
             </div>
         `;
         gameOverScreen.classList.remove('hidden');
+        
+        // Esconde controles mobile no game over
+        const mobileControls = document.getElementById('mobileControls');
+        if (mobileControls) {
+            mobileControls.classList.add('hidden');
+        }
     }
 
     getScore() {
