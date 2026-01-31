@@ -7,15 +7,6 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- Tela de Início -->
-    <div id="startScreen" class="start-screen">
-      <div class="start-content">
-        <h1>🚴 Jogo de Bicicleta</h1>
-        <p>Desvie dos obstáculos!</p>
-        <button id="startButton" class="start-button">INICIAR JOGO</button>
-      </div>
-    </div>
-    
     <canvas id="gameCanvas" width="400" height="600"></canvas>
 
     <div id="ui">
@@ -31,21 +22,6 @@
     </div>
 
     <button id="soundToggle" class="sound-toggle">🔊 Som ON</button>
-
-    <!-- Controles Virtuais para Mobile -->
-    <div id="mobileControls" class="mobile-controls hidden">
-      <!-- Controles de velocidade (esquerda) -->
-      <div class="control-group left">
-        <button id="btnUp" class="control-btn accelerate">⬆️</button>
-        <button id="btnDown" class="control-btn decelerate">⬇️</button>
-      </div>
-      
-      <!-- Controles de movimento (direita) -->
-      <div class="control-group right">
-        <button id="btnLeft" class="control-btn">⬅️</button>
-        <button id="btnRight" class="control-btn">➡️</button>
-      </div>
-    </div>
 
     <script src="script.js"></script>
   </body>

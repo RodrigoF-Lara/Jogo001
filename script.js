@@ -156,7 +156,7 @@ class Car {
         
         // Carregar imagem da bicicleta
         this.bikeImage = new Image();
-        this.bikeImage.src = 'img/bike001.avif';
+        this.bikeImage.src = 'img/bike002.png';
         this.imageLoaded = false;
         this.bikeImage.onload = () => {
             this.imageLoaded = true;
@@ -599,8 +599,9 @@ class Game {
         const gameOverScreen = document.getElementById('gameOverScreen');
         gameOverScreen.innerHTML = `
             <div class="gameOverContent">
-                <h1>GAME OVER! Comprou a carteira foi ?!</h1>
+                <h1>Sua Bicicleta Quebrou! Passe na GuPedal para consertar!</h1>
                 <p id="finalScore">Quilometragem Final: ${Math.floor(this.score / 10)} km que perigo....</p>
+                <p><a href="https://www.instagram.com/gupedalbikes?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">Visite nosso Instagram</a></p>
                 <button onclick="location.reload()">Jogar Novamente</button>
             </div>
         `;

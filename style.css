@@ -168,6 +168,27 @@ canvas {
     margin-bottom: 30px;
 }
 
+.gameOverContent a {
+    color: #00ff00;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px 20px;
+    border: 2px solid #00ff00;
+    border-radius: 8px;
+    display: inline-block;
+    transition: all 0.3s;
+    margin: 10px 0;
+    background: rgba(0, 255, 0, 0.1);
+}
+
+.gameOverContent a:hover {
+    background: #00ff00;
+    color: #000;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+}
+
 .gameOverContent button {
     background: #00ff00;
     color: #000;
