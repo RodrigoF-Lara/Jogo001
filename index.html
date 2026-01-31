@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jogo de Carro - Desvie!</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <canvas id="gameCanvas" width="400" height="600"></canvas>
+
+    <div id="ui">
+      <div id="score">Quilometragem: 0 km</div>
+      <div id="levelDisplay">Fase: 1</div>
+      <div id="gameOverScreen" class="hidden">
+        <div class="gameOverContent">
+          <h1>GAME OVER! Comprou a carteira foi ?!</h1>
+          <p id="finalScore">Quilometragem Final: 0 km que perigo....</p>
+          <button onclick="location.reload()">Jogar Novamente</button>
+        </div>
+      </div>
+    </div>
+
+    <button id="soundToggle" class="sound-toggle">🔊 Som ON</button>
+
+    <script src="script.js"></script>
+  </body>
+</html>
